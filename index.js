@@ -49,7 +49,7 @@ app.route("/resident")
 	})
 	
 	
-	app.get("/staff/:id", async (req, res) => {
+	app.get("/resident/:id", async (req, res) => {
 	console.log(req.params.id);
 	let data = await detail.find({"_id": req.params.id});
 	res.send(data[0]);
