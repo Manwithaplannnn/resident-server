@@ -14,7 +14,7 @@ var cors = require("cors");
 app.use(cors());
 
 
-app.route("/staff")
+app.route("/resident")
     .get(async (req, res) => {
         let data = await detail.find();
         console.log(await detail);
