@@ -32,7 +32,19 @@ app.route("/resident")
     })
     .put(async (req, res) => {
         console.log(req.body);
-        let s = await detail.updateOne({"flatNo": req.body.flatNumber}, { "$set": {"firstName":req.body.firstName,"lastName":req.body.lastName, "phoneNumber":req.body.phoneNumber, "emailID": req.body.emailAddress}})
+        // let s = await detail.updateOne({"flatNo": req.body.flatNumber}, { "$set": {"firstName":req.body.firstName,"lastName":req.body.lastName, "phoneNumber":req.body.phoneNumber, "emailID": req.body.emailAddress}})
+        let s = await detail.updateOne(
+            { _id: req.body._id },
+            {
+              $set: {
+                flatNo: req.body.flatNo,
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
+                phoneNumber: req.body.phoneNumber,
+                emailID: req.body.emailID,
+              },
+            }
+          );
         res.send(s);
         
 
